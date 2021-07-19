@@ -120,7 +120,7 @@ class ZeroandRandomFill(Thread):
 
 def main():
     print("|-------------------------------|\n|   JunkFiles Create Cleanner   |\n|-------------------------------|")
-    print("|  1: Random Fill Mode\t\t\t|\n|  2: Zero Fill Mode\t\t\t|\n|  3: Zero & Random Fill Mode   |\n|-------------------------------|")
+    print("|  1: Random Fill Mode          |\n|  2: Zero Fill Mode            |\n|  3: Zero & Random Fill Mode   |\n|-------------------------------|")
     SelectMode = input(" SelectMode: ")
     print("|-------------------------------|\n|      Please Wait......        |\n|-------------------------------|")
     if SelectMode == '1':
