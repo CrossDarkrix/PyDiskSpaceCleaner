@@ -12,7 +12,7 @@ D = [str(rnd()) for AA in range(5)]
 rData = (D[0]+D[1]+D[2]+D[3]+D[4]).replace('.','')
 zData = (b'\x00\x00\x00\x00\x00\x00\x00\x00\x00').decode('utf-8')
 rzData = rData + zData
-DataPlus = (b'\x00').decode()
+DataPlus = (b'\x00').decode('utf-8')
 
 def writing_byte():
     add_f = open('JunkFile0.tmp','a')
@@ -134,4 +134,3 @@ def main():
 
 if __name__== '__main__':
     main()
-
