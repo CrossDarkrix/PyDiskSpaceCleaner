@@ -6,13 +6,14 @@ from os.path import getsize as gs
 from os import remove
 import sys
 from threading import Thread
+from time import sleep
 
-# Data
 D = [str(rnd()) for AA in range(5)]
 rData = (D[0]+D[1]+D[2]+D[3]+D[4]).replace('.','')
 zData = (b'\x00\x00\x00\x00\x00\x00\x00\x00\x00').decode('utf-8')
 rzData = rData + zData
 DataPlus = (b'\x00').decode('utf-8')
+Stopping_Cycle = ['0']
 
 def writing_byte():
     add_f = open('JunkFile0.tmp','a')
@@ -28,6 +29,7 @@ def writing_byte():
         add_g.close()
         add_h.close()
     except OSError:
+        Stopping_Cycle[0] = '1'
         JunkFile1 = round(gs('JunkFile0.tmp') / 1073741824)
         JunkFile2 = round(gs('JunkFile2.tmp') / 1073741824)
         JunkFile3 = round(gs('JunkFile3.tmp') / 1073741824)
@@ -102,6 +104,16 @@ def mode_Zero_and_Rnadom():
         remove('JunkFile2.tmp')
         remove('JunkFile3.tmp')
 
+def Cycle_Animeation():
+    print("|      Writing.....|            |", end="\r", flush=True)
+    sleep(0.1)
+    print("|      Writing...../            |", end="\r", flush=True)
+    sleep(0.1)
+    print("|      Writing.....-            |", end="\r", flush=True)
+    sleep(0.1)
+    print("|      Writing.....\\            |", end="\r", flush=True)
+    sleep(0.1)
+
 class RandomFill(Thread):
     def __init__(self):
         Thread.__init__(self)
@@ -120,6 +132,16 @@ class ZeroandRandomFill(Thread):
     def run(self):
         mode_Zero_and_Rnadom()
 
+class Cycles(Thread):
+    def __init__(self):
+        Thread.__init__(self)
+    def run(self):
+        while True:
+            Cycle_Animeation()
+            if Stopping_Cycle[0] == '1':
+                print("                                               ", end="\r", flush=True)
+                break
+
 def main():
     print("|-------------------------------|\n|   JunkFiles Create Cleanner   |\n|-------------------------------|")
     print("|  1: Random Fill Mode          |\n|  2: Zero Fill Mode            |\n|  3: Zero & Random Fill Mode   |\n|-------------------------------|")
@@ -127,10 +149,13 @@ def main():
     print("|-------------------------------|\n|      Please Wait......        |\n|-------------------------------|")
     if SelectMode == '1':
         RandomFill().start()
+        Cycles().start()
     elif SelectMode == '2':
         ZeroFill().start()
+        Cycles().start()
     elif SelectMode == '3':
         ZeroandRandomFill().start()
+        Cycles().start()
     else:
         sys.exit(0)
 
