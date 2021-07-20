@@ -13,6 +13,3 @@
 ![DEMO](https://raw.githubusercontent.com/CrossDarkrix/PyDiskSpaceCleaner/main/ScreenShot/PyDiskCleanner-DEMO.gif)
 ## Usage
 *`python3 PyDiskCleaner.py`*
-
-## ※このツールはまだテスト版であり、趣味で適当に作ったツールです。
-
