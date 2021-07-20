@@ -10,6 +10,7 @@
 
 *といった構成で作られており、3つのファイルに徐々にデータを書き込んでいきディスクのクリーニングを実行します。*
 
+![DEMO](https://raw.githubusercontent.com/CrossDarkrix/PyDiskSpaceCleaner/main/ScreenShot/PyDiskCleanner-DEMO.gif)
 ## Usage
 *`python3 PyDiskCleaner.py`*
 
